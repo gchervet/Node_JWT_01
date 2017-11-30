@@ -1,4 +1,4 @@
-Basado en:
+#Basado en:
 
 https://www.youtube.com/watch?v=FV-x9mmnwyY
 
@@ -10,7 +10,7 @@ https://www.youtube.com/watch?v=FV-x9mmnwyY
 3. npm install body-parser
 4. npm install jsonwebtoken
 
-Para probar con Postman:
+#Para probar con Postman:
 
 GET: 
     http://localhost:9000/api/authenticate
