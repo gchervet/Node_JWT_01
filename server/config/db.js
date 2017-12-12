@@ -33,7 +33,6 @@ module.exports = {
 
     request: function (queryString) {
         
-        sql.close();
         var promise = sql.connect(config).then(pool => {
             return pool.request().query(queryString)
         })

@@ -1,25 +1,32 @@
 var sql = require('../config/db');
 
 exports.getByLegajoPromise = function(legajo) {
+    
+        try {
 
-  try {
+            sql.request('select * from uniAlumnos where legdef = ' + legajo)
+            .then(result => {
+                return result.recordset;
+            });
+            
+        } catch (err) {
+            throw err;
+        }
 
-      sql.request('select * from uniAlumnos where legdef = ' + legajo)
-      .then(result => {
-        return result.recordset;
-      });
-      
-  } catch (err) {
-      throw err;
-  }
 };
 
 // Get a particular alumno
 exports.getByLegajo = function(legajo) {
-
-  return new Promise(function (res, rej) { 
-    return exports.getByLegajoPromise(legajo);
-  })
+   
+  var promiseGetByLegajo = new Promise(function(resolve, reject) {
+    exports.getByLegajoPromise(legajo);
+  });
+  
+  promiseGetByLegajo.then(function(val) {
+    return val;
+  }).catch(function(err){
+    return err;
+  });
 
 }
 
