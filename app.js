@@ -42,7 +42,7 @@ secureRoutes.use(function(req, res, correctCallbackFunction){
 // data-controller routes
 secureRoutes.get('/get-data', dataController.getData);
 secureRoutes.post('/post-data', dataController.postData);
-secureRoutes.post('/GetAlumnoByLegajo', alumnoController.GetAlumnoByLegajo);
+secureRoutes.post('/GetAlumnoByLegajo/:id', alumnoController.GetAlumnoByLegajo);
 
 
 app.listen(9000, function(){
